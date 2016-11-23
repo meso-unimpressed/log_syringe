@@ -1,0 +1,5 @@
+--charset utf-8
+--markup markdown
+--list-undoc compact
+--output-dir doc/yardoc
+lib/**/*.rb
