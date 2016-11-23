@@ -1,9 +1,16 @@
 # frozen_string_literal: true
 require 'spec_helper'
+require 'logger'
 
 describe LogSyringe do
   it 'has a version number' do
     expect(LogSyringe::VERSION).not_to be nil
+  end
+
+  it 'has an attribute logger' do
+    logger = instance_double(Logger)
+    described_class.logger = logger
+    expect(described_class.logger).to be(logger)
   end
 
   describe '.define' do
