@@ -29,4 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop-rspec', '~> 1.8'
   spec.add_development_dependency 'guard', '~> 2.1'
   spec.add_development_dependency 'guard-rspec', '~> 4.7'
+  spec.add_development_dependency 'timecop', '~> 0.8'
+  spec.add_development_dependency 'yard', '~> 0.9'
+  spec.add_development_dependency 'simplecov', '~> 0.1'
 end
