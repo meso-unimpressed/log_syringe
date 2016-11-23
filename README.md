@@ -1,5 +1,7 @@
 # LogSyringe
 
+[![Build Status](https://travis-ci.org/meso-unimpressed/log_syringe.svg?branch=master)](https://travis-ci.org/meso-unimpressed/log_syringe)
+
 Add logging to your application without cluttering your code with logger calls.
 
 ## Installation
