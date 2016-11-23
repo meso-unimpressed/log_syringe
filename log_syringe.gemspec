@@ -2,11 +2,11 @@
 # frozen_string_literal: true
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'loggify/version'
+require 'log_syringe/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'loggify'
-  spec.version       = Loggify::VERSION
+  spec.name          = 'log_syringe'
+  spec.version       = LogSyringe::VERSION
   spec.authors       = ['Joakim Reinert']
   spec.email         = ['reinert@meso.net']
 
@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.description   =
     'Adds logging to your application without cluttering your code with ' \
     'logger calls'
-  spec.homepage      = 'https://github.com/meso-unimpressed/loggify'
+  spec.homepage      = 'https://github.com/meso-unimpressed/log_syringe'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{spec/})

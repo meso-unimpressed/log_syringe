@@ -1,4 +1,4 @@
-# Loggify
+# LogSyringe
 
 Add logging to your application without cluttering your code with logger calls.
 
@@ -7,7 +7,7 @@ Add logging to your application without cluttering your code with logger calls.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'loggify'
+gem 'log_syringe'
 ```
 
 And then execute:
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install loggify
+    $ gem install log_syringe
 
 ## Usage
 
@@ -37,5 +37,5 @@ git commits and tags, and push the `.gem` file to
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at
-https://github.com/meso-unimpressed/loggify.
+https://github.com/meso-unimpressed/log_syringe.
 

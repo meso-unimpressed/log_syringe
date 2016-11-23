@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-module Loggify
+module LogSyringe
   # DSL that is exposed for defining logging
   class DSL
     def initialize(klass, &block)
@@ -43,7 +43,7 @@ module Loggify
 
     def logging(instance, args, error, result, runtime)
       yield(
-        Loggify.logger, instance,
+        LogSyringe.logger, instance,
         args: args,
         error: error,
         result: result,

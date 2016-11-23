@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 require 'spec_helper'
-require 'loggify/dsl'
+require 'log_syringe/dsl'
 require 'logger'
 require 'timecop'
 
-describe Loggify::DSL do
+describe LogSyringe::DSL do
   class TestError < StandardError; end
 
   let(:logger) { instance_double(Logger) }
@@ -47,7 +47,7 @@ describe Loggify::DSL do
     let(:stats) { log_call[2] }
 
     before do
-      allow(Loggify).to receive(:logger).and_return(logger)
+      allow(LogSyringe).to receive(:logger).and_return(logger)
       described_class.new(test_class) do
         log_method(:foo) do |logger, instance, stats|
           instance.log_calls << [logger, instance, stats]

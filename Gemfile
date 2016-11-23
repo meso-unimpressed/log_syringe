@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in loggify.gemspec
+# Specify your gem's dependencies in log_syringe.gemspec
 gemspec
