@@ -13,12 +13,19 @@ module Loggify
     # @param name [Symbol] The method to wrap
     # @yieldparam logger [Logger] The global logger instance
     # @yieldparam instance The instance the method was called on
-    # @yieldparam stats [Hash] Information about the method call
-    # @option stats [Array] :args The arguments the method was called with
-    # @option stats [StandardError] :error The error that was raised (if any)
-    # @option stats :result The return value of the method (if no exception
-    #   was raised
-    # @option stats [Float] :runtime The runtime for the method
+    # @yieldparam stats [Hash] Information about the method call.
+    #   It contains the following information: +:args [Array]+ the arguments the
+    #   method was called with, +:error [Error]+ the error that was
+    #   raised (if any), +:result+ the return value of the method
+    #   (if no exception was raised), +:runtime+ the runtime for the method
+    #   (if no exception was raised).
+    # @example
+    #   log_method(:some_method) do |logger, instance, stats|
+    #     logger.info(
+    #       "some_method called on #{instance} with args #{stats[:args]}. " \
+    #       "runtime: #{stats[:runtime]}"
+    #     )
+    #   end
     def log_method(name, &block)
       check_method_exists!(name)
       define_logging_method(
