@@ -1,6 +1,8 @@
 # LogSyringe
 
 [![Build Status](https://travis-ci.org/meso-unimpressed/log_syringe.svg?branch=master)](https://travis-ci.org/meso-unimpressed/log_syringe)
+[![Code Climate](https://codeclimate.com/github/meso-unimpressed/log_syringe/badges/gpa.svg)](https://codeclimate.com/github/meso-unimpressed/log_syringe)
+[![Test Coverage](https://codeclimate.com/github/meso-unimpressed/log_syringe/badges/coverage.svg)](https://codeclimate.com/github/meso-unimpressed/log_syringe/coverage)
 
 Add logging to your application without cluttering your code with logger calls.
 
@@ -22,7 +24,35 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Write your code:
+
+``` ruby
+class MyClass
+  def some_method(an_argument)
+    do_something
+  end
+end
+```
+
+Set up a logger for LogSyringe:
+
+``` ruby
+LogSyringe.logger = Logger.new(STDOUT)
+```
+
+Inject logging with LogSyringe:
+
+``` ruby
+LogSyringe.define(MyClass) do
+  log_method(:some_method) do |logger, instance, stats|
+    logger.info(
+      "some_method was called in #{instance} with params #{stats[:params]}"
+    )
+  end
+end
+```
+
+For full documentation see http://www.rubydoc.info/github/meso-unimpressed/log_syringe/master
 
 ## Development
 
