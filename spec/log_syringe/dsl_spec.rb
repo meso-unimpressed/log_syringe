@@ -24,6 +24,16 @@ describe LogSyringe::DSL do
       def bar
         raise TestError, 'raise coming through'
       end
+
+      protected
+
+      def foobar
+      end
+
+      private
+
+      def barfoo
+      end
     end
   end
 
@@ -56,6 +66,9 @@ describe LogSyringe::DSL do
         log_method(:bar) do |logger, instance, stats|
           instance.log_calls << [logger, instance, stats]
         end
+
+        log_method(:foobar) {}
+        log_method(:barfoo) {}
       end
 
       instance.foo(:bar)
@@ -107,9 +120,17 @@ describe LogSyringe::DSL do
     end
 
     it 'raises if trying to wrap a non-existing method' do
-      expect { described_class.new(test_class) { log_method(:foobar) {} } }.to(
+      expect { described_class.new(test_class) { log_method(:bla) {} } }.to(
         raise_error(ArgumentError)
       )
+    end
+
+    it 'does not change method visibility for protected methods' do
+      expect(test_class.protected_instance_methods).to include(:foobar)
+    end
+
+    it 'does not change method visibility for private methods' do
+      expect(test_class.private_instance_methods).to include(:barfoo)
     end
   end
 end

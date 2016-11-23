@@ -27,10 +27,11 @@ module LogSyringe
     #     )
     #   end
     def log_method(name, &block)
-      check_method_exists!(name)
+      visibility = visibility(name)
       define_logging_method(
         name, method(:measure_runtime), method(:logging), &block
       )
+      @logging_layer.send(visibility, name)
     end
 
     private
@@ -64,9 +65,16 @@ module LogSyringe
       end
     end
 
-    def check_method_exists!(name)
-      return if @klass.instance_methods.include?(name)
-      raise ArgumentError, "#{@klass} does not define method #{name}"
+    def visibility(name)
+      result = [:public, :protected, :private].find do |visibility|
+        @klass.send(:"#{visibility}_method_defined?", name)
+      end
+
+      unless result
+        raise ArgumentError, "#{@klass} does not define method #{name}"
+      end
+
+      result
     end
   end
 end
