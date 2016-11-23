@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/meso-unimpressed/log_syringe.svg?branch=master)](https://travis-ci.org/meso-unimpressed/log_syringe)
 [![Code Climate](https://codeclimate.com/github/meso-unimpressed/log_syringe/badges/gpa.svg)](https://codeclimate.com/github/meso-unimpressed/log_syringe)
 [![Test Coverage](https://codeclimate.com/github/meso-unimpressed/log_syringe/badges/coverage.svg)](https://codeclimate.com/github/meso-unimpressed/log_syringe/coverage)
+[![Gem Version](https://badge.fury.io/rb/log_syringe.svg)](https://badge.fury.io/rb/log_syringe)
 
 Add logging to your application without cluttering your code with logger calls.
 
