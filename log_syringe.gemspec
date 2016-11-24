@@ -32,4 +32,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'timecop', '~> 0.8'
   spec.add_development_dependency 'yard', '~> 0.9'
   spec.add_development_dependency 'simplecov', '~> 0.1'
+  spec.add_development_dependency 'codeclimate-test-reporter', '~> 1.0'
 end
